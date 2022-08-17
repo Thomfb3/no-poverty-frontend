@@ -29,7 +29,7 @@ function LoginForm({ login }) {
     async function handleSubmit(evt) {
         evt.preventDefault();
         setLoading(true);
-        let result = await login(formData).then(console.log(result));
+        let result = await login(formData)
         if (result.success) {
             navigate('/');
         } else {
@@ -65,12 +65,16 @@ function LoginForm({ login }) {
                 <>
                     <TextInputField
                         name="username"
+                        label="Username"
+                        width="100%"
+                        type="text"
                         variant="outlined"
                         value={formData.username}
                         handleChange={handleChange}
                     />
                     <PasswordInputField
                         name="password"
+                        label="Password"
                         variant="outlined"
                         value={formData.password}
                         showPassword={formData.showPassword}

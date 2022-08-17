@@ -17,17 +17,22 @@ function FormContainer({ formName, formFields, formErrors, reset }) {
         right: "50%",
         transform: "translate(50%, -50%)",
     }
+
+
     return (
         <Box
             component="form"
-            sx={styles}
             noValidate
             autoComplete="off"
         >
             <Typography 
-                variant="h2"
-                component="h1"
-                gutterBottom>
+                variant="h4"
+                component="h3"
+                sx={{
+                    marginBottom: "15px",
+                    color: "#1365de"
+                }}
+                >
                     {formName}
             </Typography>
 

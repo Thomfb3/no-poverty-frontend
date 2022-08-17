@@ -10,7 +10,8 @@ import IconButton from '@mui/material/IconButton';
 
 
 function PasswordInputField({
-    name, 
+    name,
+    label,
     value, 
     handleChange, 
     variant, 
@@ -24,7 +25,7 @@ function PasswordInputField({
 
     return (
         <FormControl sx={styles} variant={variant}>
-        <InputLabel htmlFor={name}>Password</InputLabel>
+        <InputLabel htmlFor={name}>{label}</InputLabel>
         <OutlinedInput
             id={name}
             name={name}

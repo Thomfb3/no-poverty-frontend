@@ -1,27 +1,29 @@
 import React from "react";
-import capitalize from '../helpers/capitalize';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 
 function TextInputField({ 
     name,
+    label,
+    type,
     value,
+    width,
     handleChange,
     variant
 }) {
-    const styles = { width: '100%', marginBottom: '30px'}
+    const styles = { width: width, marginBottom: '30px'}
 
     return (
         <FormControl sx={styles} variant={variant}>
-            <InputLabel htmlFor={name}>{capitalize(`${name}`)}</InputLabel>
+            <InputLabel htmlFor={name}>{label}</InputLabel>
             <OutlinedInput
                 id={name}
                 name={name}
-                type="text"
+                type={type}
                 value={value}
                 onChange={handleChange}
-                label={capitalize(name)}
+                label={label}
             />
         </FormControl>
     )

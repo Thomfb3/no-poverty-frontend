@@ -93,17 +93,13 @@ function App() {
 
         <React.Fragment>
           <CssBaseline />
-
           <Navigation logout={logout} />
-
           <AppRoutes
             login={login}
             signup={signup}
             updateCurrentUser={updateCurrentUser}
           />
-
           <Footer />
-
         </React.Fragment>
 
       </UserContext.Provider>
