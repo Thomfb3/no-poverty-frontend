@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/v1/"
+const BASE_URL = "http://localhost:5000/api/v1"
 
 class NoPovertyApi {
     // the token for interactive with the API will be stored here.
@@ -24,13 +24,31 @@ class NoPovertyApi {
         };
     };
 
-        /////USERS
+
+    ///////Auth API
+    /** Get token for login from username and password */
+    static async login(data) {
+        let res = await this.request("auth/token", data, "post");
+        return res.token;
+    };
+
+    /** Signup for site */
+    static async signup(data) {
+        let res = await this.request("auth/register", data, "post");
+        return res.token;
+    };
+
+    /////USERS
     /** Get the current user. */
     static async getCurrentUser(id) {
         let res = await this.request(`users/${id}`);
         return res.data;
     };
-
+    /** Save user profile */
+    static async saveProfile(userId, data) {
+        let res = await this.request(`users/${userId}`, data, "patch");
+        return res.data;
+    };
 
 }
 

@@ -26,7 +26,7 @@ function AppAlert({ severity = "error", messages = [], reset, resetNeeded=false}
         <CloseIcon fontSize="inherit" />
       </IconButton>
     }>
-      <AlertTitle>Hello</AlertTitle>
+      <AlertTitle>Error!</AlertTitle>
       {messages.map(error => (
         <p className="Alert-message" key={error}>
           {error}

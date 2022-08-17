@@ -7,19 +7,15 @@ import SignupForm from "../auth/SignupForm";
 
 
 function AppRoutes({ login, signup, updateCurrentUser }) {
- 
+
     return (
-        <div>
-            <Routes>
-                <Route path="/" element={<Homepage />} />
-                
-                <Route exact path="/login" />
 
-                <Route exact path="/signup" />
+        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route exact path="/login" element={<LoginForm login={login} />} />
+            <Route exact path="/signup" />
+        </Routes>
 
-
-            </Routes>
-        </div>
     );
 };
 

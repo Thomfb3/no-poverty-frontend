@@ -9,7 +9,7 @@ import jwt from "jsonwebtoken";
 import Navigation from "./routes/Navigation";
 import CssBaseline from '@mui/material/CssBaseline';
 import LoadingSpinner from "./common/LoadingSpinner";
-// import './App.css';
+import './App.css';
 
 export const TOKEN_STORAGE_ID = "user_token";
 
@@ -93,17 +93,17 @@ function App() {
 
         <React.Fragment>
           <CssBaseline />
-          <div>
-            <Navigation logout={logout} />
-          </div>
-          <div>
-            <AppRoutes
-              login={login}
-              signup={signup}
-              updateCurrentUser={updateCurrentUser}
-            />
-          </div>
+
+          <Navigation logout={logout} />
+
+          <AppRoutes
+            login={login}
+            signup={signup}
+            updateCurrentUser={updateCurrentUser}
+          />
+
           <Footer />
+
         </React.Fragment>
 
       </UserContext.Provider>

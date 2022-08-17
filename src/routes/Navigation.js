@@ -10,11 +10,11 @@ function Navigation({ logout }) {
     const { currentUser } = useContext(UserContext);
 
     return (
-        <nav className="Navigation">
+        <nav className="Navigation" style={{border: "1px solid red"}} >
             <div className="Navigation__nav">
 
                 <div className="Navigation__logo-box">
-                    Navigation bar
+                    No Poverty     
                 </div>
                 <div className="Navigation__profile">
 
