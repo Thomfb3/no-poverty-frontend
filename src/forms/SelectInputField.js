@@ -9,12 +9,13 @@ function SelectInputField({
     label,
     value,
     items,
-    handleChange
+    handleChange,
+    styles
 }) {
-    const styles = { width: '100%', marginBottom: '30px', position: "relative" }
+    const sx = { marginBottom: '30px', width: "100%", ...styles }
 
     return (
-        <FormControl sx={styles}>
+        <FormControl sx={sx}>
             <InputLabel id={name}>{label}</InputLabel>
             <Select
                 labelId={`select-${label}-label`}

@@ -1,0 +1,45 @@
+.Login-Form {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        overflow: hidden;
+        background-color: $color-white;
+        box-shadow: $box-shadow-high;
+        border-radius: $border-radius;
+        padding: 1.3rem;
+        position: relative;
+    }
+
+    &__side {
+        margin: 1.2rem;
+        min-width: 44%;
+
+        &:nth-child(even) {
+            margin-right: 2.1rem;
+        }
+    }
+
+    &__screen {
+        background-image: url("../assets/homeless-screen-1-min.jpg");
+        background-attachment: fixed;
+        height: 110%;
+        width: 52%;
+        position: absolute;
+        top: -10px;
+        z-index: 10;
+        transition: all .3s cubic-bezier(0,.69,.03,1.02);
+    }
+    &__switch {
+        background-color: rgba(0,0,0,0);
+        font-size: 13px;;
+        border: none;
+        outline: none;
+        text-decoration: underline;
+        color: gray; 
+        &:hover {
+            cursor: pointer;
+            color: rgb(0, 64, 255);
+        }
+    } 
+}

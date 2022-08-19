@@ -8,14 +8,14 @@ function TextInputField({
     label,
     type,
     value,
-    width,
     handleChange,
-    variant
+    variant,
+    styles
 }) {
-    const styles = { width: width, marginBottom: '30px'}
+    const sx = { marginBottom: '30px', width: "100%", ...styles }
 
     return (
-        <FormControl sx={styles} variant={variant}>
+        <FormControl sx={sx} variant={variant}>
             <InputLabel htmlFor={name}>{label}</InputLabel>
             <OutlinedInput
                 id={name}

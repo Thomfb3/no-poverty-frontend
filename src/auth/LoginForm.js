@@ -10,15 +10,14 @@ function LoginForm({ login }) {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-        showPassword: false,
+        loginUsername: "",
+        loginPassword: "",
+        loginShowPassword: false,
     });
 
     const [loading, setLoading] = useState(false);
 
     const [formErrors, setFormErrors] = useState([]);
-    console.log(formData);
     console.debug(
         "LoginForm",
         "login=", typeof login,
@@ -44,10 +43,10 @@ function LoginForm({ login }) {
         setFormData(data => ({ ...data, [name]: value }));
     };
 
-    const handleClickShowPassword = () => {
+    const handleClickLoginShowPassword = () => {
         setFormData({
             ...formData,
-            showPassword: !formData.showPassword,
+            loginShowPassword: !formData.loginShowPassword,
         });
     };
 
@@ -64,22 +63,21 @@ function LoginForm({ login }) {
             formFields={
                 <>
                     <TextInputField
-                        name="username"
+                        name="loginUsername"
                         label="Username"
-                        width="100%"
                         type="text"
                         variant="outlined"
-                        value={formData.username}
+                        value={formData.loginUsername}
                         handleChange={handleChange}
                     />
                     <PasswordInputField
-                        name="password"
+                        name="loginPassword"
                         label="Password"
                         variant="outlined"
-                        value={formData.password}
-                        showPassword={formData.showPassword}
+                        value={formData.loginPassword}
+                        showPassword={formData.loginShowPassword}
                         handleChange={handleChange}
-                        handleClickShowPassword={handleClickShowPassword}
+                        handleClickShowPassword={handleClickLoginShowPassword}
                     />
                     <SubmitButton
                         size="large"

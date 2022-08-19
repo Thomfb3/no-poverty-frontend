@@ -5,11 +5,11 @@ import Footer from "./common/Footer";
 import NoPovertyApi from "./api/api";
 import UserContext from "./auth/UserContext";
 import useLocalStorage from "./hooks/useLocalStorage";
-import jwt from "jsonwebtoken";
+import { decodeToken } from "react-jwt";
 import Navigation from "./routes/Navigation";
 import CssBaseline from '@mui/material/CssBaseline';
 import LoadingSpinner from "./common/LoadingSpinner";
-import './App.css';
+import './scss/App.scss';
 
 export const TOKEN_STORAGE_ID = "user_token";
 
@@ -18,6 +18,8 @@ function App() {
   const [isAdvocate, setIsAdvocate] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const [infoLoaded, setInfoLoaded] = useState(false);
+  const [modalOn, setModalOn] = useState(false)
+  const [modalIsSignup, setModalIsSignup] = useState(false)
 
   useEffect(function loadUserInfo() {
     console.debug("App useEffect loadUserInfo", "token=", token);
@@ -25,7 +27,7 @@ function App() {
     async function getCurrentUser() {
       if (token) {
         try {
-          let { userId } = jwt.decode(token)
+          let { userId } = decodeToken(token)
           NoPovertyApi.token = token;
           let currentUser = await NoPovertyApi.getCurrentUser(userId)
 
@@ -79,6 +81,19 @@ function App() {
     };
   };
 
+  function toggleModal() {
+    const toggle = !modalOn ? true : false;
+    setModalOn(toggle);
+    setModalIsSignup(false);
+  }
+
+  function toggleModalSignup() {
+    const toggle = !modalOn ? true : false;
+    setModalOn(toggle);
+    setModalIsSignup(true);
+  }
+
+
   if (!infoLoaded) return <LoadingSpinner />;
 
   return (
@@ -91,18 +106,25 @@ function App() {
           setIsAdvocate
         }}>
 
-        <React.Fragment>
-          <CssBaseline />
-          <Navigation logout={logout} />
-          <AppRoutes
-            login={login}
-            signup={signup}
-            updateCurrentUser={updateCurrentUser}
-          />
-          <Footer />
-        </React.Fragment>
+          <React.Fragment>
+            <CssBaseline />
+            <Navigation
+              logout={logout}
+              toggleModal={toggleModal}
+              toggleModalSignup={toggleModalSignup}
+            />
+            <AppRoutes
+              login={login}
+              signup={signup}
+              updateCurrentUser={updateCurrentUser}
+              toggleModal={toggleModal}
+              modalOn={modalOn}
+              modalIsSignup={modalIsSignup}
+            />
+            <Footer />
+          </React.Fragment>
 
-      </UserContext.Provider>
+        </UserContext.Provider>
     </BrowserRouter>
   );
 }

@@ -71,7 +71,6 @@ function SignupForm({ signup }) {
                     <TextInputField
                         name="username"
                         label="Username"
-                        width="100%"
                         type="text"
                         variant="outlined"
                         value={formData.username}
@@ -86,31 +85,36 @@ function SignupForm({ signup }) {
                         handleChange={handleChange}
                         handleClickShowPassword={handleClickShowPassword}
                     />
+                    <div style={{display: "flex", justifyContent: "space-between"}} >
                     <TextInputField
                         name="firstName"
                         label="First Name"
-                        width="50%"
                         type="text"
                         variant="outlined"
-                        value={formData.username}
+                        value={formData.firstName}
                         handleChange={handleChange}
+                        styles={ 
+                            { width: "48%" }
+                        }
                     />
                     <TextInputField
                         name="lastName"
                         label="Last Name"
-                        width="50%"
                         type="text"
                         variant="outlined"
-                        value={formData.username}
+                        value={formData.lastName}
                         handleChange={handleChange}
+                        styles={ 
+                            { width: "48%" }
+                        }
                     />
+                    </div>
                     <TextInputField
                         name="email"
                         label="Email"
-                        width="100%"
                         type="email"
                         variant="outlined"
-                        value={formData.username}
+                        value={formData.email}
                         handleChange={handleChange}
                     />
                     <SelectInputField

@@ -1,24 +1,30 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import LoginPage from "../pages/LoginPage";
 
-
-
-function AppRoutes({ login, signup, updateCurrentUser }) {
-
+function AppRoutes({ 
+    login,
+    signup,
+    toggleModal,
+    modalOn,
+    modalIsSignup
+}) {
     return (
-
         <Routes>
             <Route path="/" element={<Homepage />} />
             <Route 
                 exact 
                 path="/login" 
-                element={ <LoginPage login={login} signup={signup} /> } 
+                element={ <LoginPage 
+                            login={login} 
+                            signup={signup}
+                            toggleModal={toggleModal}
+                            modalOn={modalOn}
+                            modalIsSignup={modalIsSignup}
+                            /> } 
             />
-    
         </Routes>
-
     );
 };
 

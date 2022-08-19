@@ -13,18 +13,20 @@ function PasswordInputField({
     name,
     label,
     value, 
-    handleChange, 
-    variant, 
-    handleClickShowPassword, 
-    showPassword
+    handleChange,
+    variant,
+    handleClickShowPassword,
+    showPassword,
+    styles
 }) {
-    const styles = { width: '100%', marginBottom: '30px'}
+    const sx = { marginBottom: '30px', width: "100%", ...styles }
+
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
 
     return (
-        <FormControl sx={styles} variant={variant}>
+        <FormControl sx={sx} variant={variant}>
         <InputLabel htmlFor={name}>{label}</InputLabel>
         <OutlinedInput
             id={name}

@@ -11,12 +11,13 @@ function SubmitButton({
     loading, 
     loadingPosition, 
     startIcon, 
-    endIcon
+    endIcon,
+    styles
 }) {
-    const styles = { width: '100%', marginBottom: '30px' }
+    const sx = { marginBottom: '30px', width: "100%", ...styles }
 
     return (
-        <FormControl sx={styles}>
+        <FormControl sx={sx}>
             <LoadingButton
                 size={size}
                 color={color}
