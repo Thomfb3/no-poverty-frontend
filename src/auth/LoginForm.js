@@ -28,7 +28,8 @@ function LoginForm({ login }) {
     async function handleSubmit(evt) {
         evt.preventDefault();
         setLoading(true);
-        let result = await login(formData)
+        const loginFormData = {username : formData.loginUsername, password : formData.loginPassword}
+        let result = await login(loginFormData)
         if (result.success) {
             navigate('/');
         } else {
