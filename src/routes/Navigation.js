@@ -14,6 +14,7 @@ function Navigation({ logout, toggleModal, toggleModalSignup }) {
                 <div className="Navigation__logo-box" >
                     <img className="Navigation__logo" src={npLogo} width={170} />
                 </div>
+          
                 <div className="Navigation__profile">
                     {currentUser && <div
                                         className="Navigation__login Navigation__login--logout"

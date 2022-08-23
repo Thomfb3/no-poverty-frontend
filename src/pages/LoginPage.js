@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import LoginModal from "../auth/LoginModal";
 import UserContext from "../auth/UserContext";
+import { Navigate } from "react-router-dom";
 
 function LoginPage({
     login,
@@ -11,6 +12,12 @@ function LoginPage({
 }) {
     const hiddenClass = modalOn ? "not-hidden" : "hidden";
     const { currentUser } = useContext(UserContext);
+
+    if (currentUser) {
+        return <Navigate to="/resources"/>
+    };
+    
+
 
     return (
         <>

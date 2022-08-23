@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import LoginPage from "../pages/LoginPage";
+import ResourcePage from "../pages/ResourcePage";
+import PrivateRoute from "./PrivateRoute";
 
 function AppRoutes({ 
     login,
@@ -24,6 +26,7 @@ function AppRoutes({
                             modalIsSignup={modalIsSignup}
                             /> } 
             />
+            <Route exact path="/resources" element={<ResourcePage />} />
         </Routes>
     );
 };

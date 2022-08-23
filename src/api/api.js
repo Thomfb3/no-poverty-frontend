@@ -24,7 +24,6 @@ class NoPovertyApi {
         };
     };
 
-
     ///////Auth API
     /** Get token for login from username and password */
     static async login(data) {
@@ -47,6 +46,12 @@ class NoPovertyApi {
     /** Save user profile */
     static async saveProfile(userId, data) {
         let res = await this.request(`users/${userId}`, data, "patch");
+        return res.data;
+    };
+
+    /////RESOURCES
+    static async getAllResources() {
+        let res = await this.request('resources');
         return res.data;
     };
 
